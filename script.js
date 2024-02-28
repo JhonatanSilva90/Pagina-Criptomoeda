@@ -1,73 +1,93 @@
+// Função para formatar a data:
+function formatarData(data) {
+  return new Date(data)
+    .toLocaleDateString("pt-BR", {
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+    })
+    .replace(/\//g, "-");
+}
+
 // Criando um objeto com os dados das moedas
 const cryptoData = [
   {
     name: "Bitcoin",
     logo: "./images/bitcoin.png",
     rate: 42381,
-    date: "2023-12-19",
+    date: formatarData(new Date()), //Inserindo a data atual, usando a função para simplificar o código
     description: "Descrição do Bitcoin",
   },
   {
     name: "Ethereum",
     logo: "./images/ethereum.png",
     rate: 2183,
-    date:  "2023-12-19",
+    date: formatarData(new Date()), //Inserindo a data atual, usando a função para simplificar o código
+
     description: "Descrição do Bitcoin",
   },
   {
     name: "Tether",
     logo: "./images/tether.png",
     rate: 1,
-    date:  "2023-12-19",
+    date: formatarData(new Date()), //Inserindo a data atual, usando a função para simplificar o código
+
     description: "Descrição do Bitcoin",
   },
   {
     name: "USD Coin",
     logo: "./images/coin.png",
     rate: 4.87,
-    date:  "2023-12-19",
+    date: formatarData(new Date()), //Inserindo a data atual, usando a função para simplificar o código
+
     description: "Descrição do Bitcoin",
   },
   {
     name: "BNB",
     logo: "./images/bnb.png",
     rate: 1238,
-    date:  "2023-12-19",
+    date: formatarData(new Date()), //Inserindo a data atual, usando a função para simplificar o código
+
     description: "Descrição do Bitcoin",
   },
   {
     name: "XRP",
     logo: "./images/xrpname.png",
     rate: 0.61,
-    date:  "2023-12-19",
+    date: formatarData(new Date()), //Inserindo a data atual, usando a função para simplificar o código
+
     description: "Descrição do Bitcoin",
   },
   {
     name: "Binance USD",
     logo: "./images/binancia.png",
     rate: 1,
-    date:  "2023-12-19",
+    date: formatarData(new Date()), //Inserindo a data atual, usando a função para simplificar o código
+
     description: "Descrição do Bitcoin",
   },
   {
     name: "Dogecoin",
     logo: "./images/dogecoin.png",
     rate: 0.091,
-    date:  "2023-12-19",
+    date: formatarData(new Date()), //Inserindo a data atual, usando a função para simplificar o código
+
     description: "Descrição do Bitcoin",
   },
   {
     name: "Cardano",
     logo: "./images/cardano.png",
     rate: 0.58,
-    date:  "2023-12-19",
+    date: formatarData(new Date()), //Inserindo a data atual, usando a função para simplificar o código
+
     description: "Descrição do Bitcoin",
   },
   {
     name: "Polygon",
     logo: "./images/matic.png",
     rate: 0.77,
-    date:  "2023-12-19",
+    date: formatarData(new Date()), //Inserindo a data atual, usando a função para simplificar o código
+
     description: "Descrição do Bitcoin",
   },
   // Adicione mais criptomoedas conforme necessário
@@ -88,7 +108,6 @@ cryptoData.forEach((crypto) => {
   convertedOption.text = crypto.name;
   convertedCryptoSelect.add(convertedOption);
 });
-
 
 // Exibir informações de criptomoedas
 const cryptoListSection = document.getElementById("cryptoList");
@@ -120,7 +139,7 @@ function convertCurrency() {
   );
 
   if (selectedCryptoObject && convertedCryptoObject) {
-    const conversionRate = 
+    const conversionRate =
       selectedCryptoObject.rate / convertedCryptoObject.rate;
     const result = amount * conversionRate;
 
